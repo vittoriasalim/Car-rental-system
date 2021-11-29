@@ -1,0 +1,180 @@
+import java.util.Date;
+
+
+public abstract class Car {
+   // Global Variables to be used throughout the program. Please use these whenever possible
+   public static final int SEDAN       = 0;
+   public static final int COUPE       = 1;
+   public static final int CROSSOVER   = 2;
+   public static final int CONVERTIBLE = 3;
+   
+   // Instance Variables
+   private int code;
+   private String make;
+   private String model;
+   //other variable 
+   private String renter;
+   private  double mileage;
+   private double allowableMileage;
+   private Date dueDate;
+   private boolean isRent;
+   private double returnCar;
+  
+
+   //============== Constructor ===============
+   /* Default constructor for initiating a Car object */
+   public Car() {
+   mileage =0;
+   renter="";
+   allowableMileage=0;
+   dueDate=null;
+   isRent=false;
+
+   }
+   
+   /* To instantiate a Car object
+    * @param code        - The car code of this car
+    * @param make        - The maker of this car
+    * @param model       - The model name of this car */
+   public Car( int code, String make, String model) {
+     this.code  = code;
+     this.make  = make;
+     this.model = model;
+   }
+   
+   //============= Private Methods ===============
+   /* May add your own private methods here */   
+    
+   
+   //============= Public Methods ================   
+   /* Get the car code
+    * @return - The car code */
+   public int GetCode() {
+     
+   
+      return this.code;     // Needs to be changed
+   }
+   
+   /* Get the car maker
+    * @return - The car maker */   
+   public String GetMake() {
+  
+      return this.make;  // Needs to be changed
+   }
+   
+   /* Get the car model
+    * @return - The car model */   
+   public String GetModel() {
+    
+      return this.model;  // Needs to be changed
+   }
+   
+   /* Get the car's current mileage
+    * @return - The car mileage */ 
+   
+   public double GetMileage() {
+  
+      return this.mileage;     // Needs to be changed
+   }
+   
+   /* Get the car's rental status
+    * @return - Return true if the car is rented out
+    *           Return false otherwise. */
+   public boolean IsRent() {
+     
+      if (this.renter !=null)
+      {
+        this.isRent=true;
+      }
+      else if (this.renter == null)
+      {
+        this.isRent =false;
+      }
+      return this.isRent;  // Needs to be changed
+   }
+   
+   /* Get the car's renter name
+    * @return - Returns the renter's name, if it is rented out
+    *           Return null otherwise. */  
+   public String GetRenter() {
+     String renter ="";
+     if (this.renter != null)
+     {
+       renter =this.renter;
+  
+     
+     }
+    
+  
+      return renter;  // Needs to be changed
+   }
+   
+   /* Get the car's rental duedate
+    * @return - Returns the car's rental duedate, if it is rented out
+    *           Return null otherwise. */     
+   public Date GetDueDate() {
+     
+      return this.dueDate ; // Needs to be changed
+   }
+   
+   /* Get the car's rental allowable distance
+    * @return - The car's rental allowable distance */     
+   public double GetAllowableDist() {
+ 
+      return this.allowableMileage;     // Needs to be changed
+   }      
+
+   /* Set the car's rental duedate 
+    * @param date - The due date of the car */    
+   public void SetDueDate(Date date)  {
+     this.dueDate=date;
+    
+   }   
+   
+   /* Set the car's renter name
+    * @param renter - The name of the renter renting the car */     
+   public void SetRenter(String renter) {
+     
+     this.renter = renter;
+   }   
+   
+   /* Set the car's rental allowable distance 
+    * @param dist - The distance allowable to drive for the car */     
+   public void SetAllowableDist( int dist ) {
+     this.allowableMileage=dist;
+          
+   }
+   
+   /* Returns a rented car back to the system
+    * @param distDrove - The distance the renter drove during the rental period
+    * @return          - Returns penalty cost, if drove over the allowable distance.
+    *                    Returns 0 otherwise.
+    *                  - if drive morethan allowable distance every km will be charged $1.25*/
+    
+   public double Return(int distDrove) {
+     if (this.renter != null)
+     {
+       if (distDrove <= this.allowableMileage)
+       {
+         this.returnCar= 0;  
+          this.mileage +=distDrove;
+       }
+       else if (distDrove > this.allowableMileage)
+       {
+         this.returnCar =((distDrove-this.allowableMileage)*1.25);
+          this.mileage +=distDrove;
+       }
+       this.renter=null;
+      
+     }
+    
+     
+       
+      return this.returnCar;   // Dummy return value, needs to be changed
+   }   
+
+   
+   /* Specify that the card is being borrowed
+    * @param renter - The renter's name */
+   public abstract void Rent(String renter, int numDays);
+}

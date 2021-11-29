@@ -1,0 +1,62 @@
+// Displayer class. Handles all the displaying 
+public class Displayer {
+
+  public void MainMenu()
+  {
+    System.out.println("===================================");
+    System.out.println("|      CIMP CAR RENTAL SYSTEM     |");
+    System.out.println("===================================");
+    System.out.println("1. Add Cars from File");
+    System.out.println("2. Add Single Car");
+    System.out.println("3. Display Cars");
+    System.out.println("4. Rent Car");
+    System.out.println("5. Return Car");
+    System.out.println("6. Exit");
+    System.out.print("Choose an option:");
+  }
+  public void AddCar()
+  {
+    System.out.println("===================================");
+    System.out.println("|            ADD A CAR            |");
+    System.out.println("===================================");
+    System.out.println("Select car type to add");
+    System.out.println("1. Sedan");
+    System.out.println("2. Coupe");
+    System.out.println("3. Crossover");
+    System.out.println("4. Convertible");
+    System.out.print("Select car type to add:Enter car type:");
+   
+  }
+  public void ReturnCar()
+  {
+    System.out.println("===================================");
+    System.out.println("|          RETURN A CAR           |");
+    System.out.println("===================================");
+    
+  }
+  public void ChooseDisplayCar()
+  {
+    System.out.println("===================================");
+    System.out.println("|           DISPLAY CAR           |");
+    System.out.println("===================================");
+    System.out.println("Select car type to add");
+    System.out.println("1. Sedan");
+    System.out.println("2. Coupe");
+    System.out.println("3. Crossover");
+    System.out.println("4. Convertible");
+    System.out.println("5. All Car");
+  }
+  public void RentCar()
+  {
+    System.out.println("===================================");
+    System.out.println("|      CIMP Car Rental System     |");
+    System.out.println("===================================");
+    
+  }
+  public void DisplayCar()
+  {
+    System.out.println("\tCODE\t\tMAKE\t\tMODEL\t\tOTHER INFO\tMILEAGE\t\t  RENTER\tALOWABLE KM\t\tDUE DATE");    
+    System.out.println("=====================================================================================================================================");
+    
+  }
+}

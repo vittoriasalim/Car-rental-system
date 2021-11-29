@@ -1,0 +1,10 @@
+0	Honda	Civic	Good on Gas
+1	Toyota	Supra	false
+2	Mazda	CX-5	5
+3	BMW	Z4	15.4
+0	Toyota	Corolla	Top Safety
+0	Audi	A4	Luxurious
+1	Nissan	GT-R	false
+1	BMW	440i	true
+2	Lexus	GX460	8
+3	Mazda	MX-5	7.6	

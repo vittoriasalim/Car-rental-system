@@ -1,0 +1,53 @@
+import java.util.Calendar;
+import java.util.Date;
+
+public class Sedan extends Car{
+  
+  //=========== CONSTRUCTOR ===========//
+  /* To instantiate a Sedan object
+   * @param code        - The car code of this car
+   * @param make        - The maker of this car
+   * @param model       - The model name of this car
+   * @param specialInfo - Special features of the sedan */
+  private String specialInfo;
+
+  private int allowableMileage;
+
+  public Sedan ()
+  {
+    allowableMileage=0;
+  
+    
+  }
+  public Sedan( int code, String make, String model, String specialInfo ) {
+    super(code,make,model);
+    this.specialInfo=specialInfo;
+  }
+  
+  //========== PUBLIC METHODS =========//
+  public String SpecialInfo()
+  {
+    return this.specialInfo;
+  }
+
+  public void Rent (String renter ,int numDays)
+  { 
+    //set renter name
+    super.SetRenter(renter);
+    
+    //set allowableMileage 
+    this.allowableMileage = numDays*250;
+    super.SetAllowableDist(this.allowableMileage);
+   
+    //increment date base on the number of days the custmer rent
+    Date date = new Date();
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(date);
+    cal.add(Calendar.DATE,numDays);
+    Date dueDate=cal.getTime();
+    super.SetDueDate(dueDate);
+  }
+  
+
+  
+}

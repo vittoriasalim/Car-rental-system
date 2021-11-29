@@ -1,0 +1,55 @@
+import java.util.Calendar;
+import java.util.Date;
+public class Convertible extends Car{
+  
+  //=========== CONSTRUCTOR ===========//
+  /* To instantiate a Convertible object
+   * @param code        - The car code of this car
+   * @param make        - The maker of this car
+   * @param model       - The model name of this car
+   * @param openTopTime - The time it takes to open the convertible top (in seconds) */
+ 
+  private double openTopTime;
+  private int allowableMileage;
+  private int numDays;
+
+  
+  public Convertible( int code, String make, String model, double openTopTime ) {
+    super (code,make,model);
+    this.openTopTime=openTopTime;
+  }
+  
+  
+  //========== PUBLIC METHODS =========//
+  public double OpenTopTime()
+  {
+    return this.openTopTime;
+  }
+
+    
+  public void Rent(String renter ,int numDays)
+  {
+    super.SetRenter(renter);
+    this.numDays=numDays;
+    if (this.numDays<5&&this.numDays>0)
+    {
+      this.allowableMileage=500;
+    }
+    else if (this.numDays >= 5)
+    {
+      this.allowableMileage = (this.numDays/5)*400;
+    }
+    super.SetAllowableDist(this.allowableMileage);
+    //increment date base on the number of days the custmer rent
+    Date date = new Date();
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(date);
+    cal.add(Calendar.DATE,numDays);
+    Date dueDate=cal.getTime();
+    super.SetDueDate(dueDate);
+    
+  }
+
+    
+  
+}

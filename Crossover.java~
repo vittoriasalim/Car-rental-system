@@ -1,0 +1,55 @@
+import java.util.Calendar;
+import java.util.Date;
+public class Crossover extends Car{
+
+   //=========== CONSTRUCTOR ===========//
+   /* To instantiate a Crossover object
+    * @param code     - The car code of this car
+    * @param make     - The maker of this car
+    * @param model    - The model name of this car
+    * @param numSeats - Number of seats the Crossover has */
+   private int numSeats;
+   private int allowableMileage;
+   //private int numDays;
+   public Crossover()
+   {
+     allowableMileage=0;
+     //numDays=0;
+   }
+   public Crossover( int code, String make, String model, int numSeats ) {
+   super (code,make,model);
+   this.numSeats=numSeats;
+   }
+   
+   
+   //========== PUBLIC METHODS =========//
+   public int GetNumSeats()
+   {
+     
+     return this.numSeats;
+   }
+ 
+       
+   public void Rent(String renter ,int numDays)
+   {
+     super.SetRenter(renter);
+     //this.numDays=numDays;
+     this.allowableMileage= GetNumSeats() * (numDays*150);
+     super.SetAllowableDist(this.allowableMileage);
+     
+     //increment date base on the number of days the custmer rent
+    Date date = new Date();
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(date);
+    cal.add(Calendar.DATE,numDays);
+    Date dueDate=cal.getTime();
+    super.SetDueDate(dueDate);
+   }
+  
+
+
+  
+     
+   
+   
+}

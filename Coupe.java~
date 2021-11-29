@@ -1,0 +1,51 @@
+import java.util.Calendar;
+import java.util.Date;
+public class Coupe extends Car {
+  
+  //=========== CONSTRUCTOR ===========//
+  /* To instantiate a Coupe object
+   * @param code        - The car code of this car
+   * @param make        - The maker of this car
+   * @param model       - The model name of this car
+   * @param hasBackSeat - If the coupe has a back seat */
+  private boolean hasBackSeat;
+  private int allowableMileage;
+  //private int numDays;
+  
+  public Coupe()
+  {
+    allowableMileage=0;
+    //numDays=0;
+  }
+  
+  public Coupe( int code, String make, String model, boolean hasBackSeat ) {
+    super (code,make,model);
+    this.hasBackSeat=hasBackSeat;
+  }
+  
+  
+  
+  //========== PUBLIC METHODS =========//
+  public boolean HasBackSeat()
+  {
+    return this.hasBackSeat;
+  }
+  
+  public void Rent(String renter,int numDays)
+  {
+    super.SetRenter(renter);
+    //this.numDays=numDays;
+    this.allowableMileage=numDays*100;
+    super.SetAllowableDist(this.allowableMileage);
+    
+    //increment date base on the number of days the custmer rent
+    Date date = new Date();
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(date);
+    cal.add(Calendar.DATE,numDays);
+    Date dueDate=cal.getTime();
+    super.SetDueDate(dueDate);
+  }
+  
+  
+}
