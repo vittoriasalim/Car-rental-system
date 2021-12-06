@@ -60,7 +60,7 @@ public class Displayer {
   {
     //header
     System.out.println("===================================");
-    System.out.println("|      CIMP Car Rental System     |");
+    System.out.println("|         Car   Rental System     |");
     System.out.println("===================================");
     
   }
