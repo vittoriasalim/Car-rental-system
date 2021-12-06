@@ -5,7 +5,7 @@ public class Displayer {
   public void MainMenu()
   {
     System.out.println("===================================");
-    System.out.println("|      CIMP CAR RENTAL SYSTEM     |");
+    System.out.println("|       CAR   RENTAL   SYSTEM     |");
     System.out.println("===================================");
     System.out.println("1. Add Cars from File");
     System.out.println("2. Add Single Car");
